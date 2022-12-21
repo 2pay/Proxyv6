@@ -13,13 +13,13 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/2pay/Proxyv6/main/3proxy-0.9.3.tar.gz"
+    URL="https://raw.githubusercontent.com/2pay/Proxyv6/main/3proxy-3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
-    cd 3proxy-0.9.3
+    cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
     mkdir -p /usr/local/etc/3proxy/{bin,logs,stat}
-    cp bin/3proxy /usr/local/etc/3proxy/bin/
-    cp ./scripts/init.d/3proxy.sh /etc/init.d/3proxy
+    cp src/3proxy /usr/local/etc/3proxy/bin/
+    cp ./scripts/rc.d/3proxy.sh /etc/init.d/3proxy
     chmod +x /etc/init.d/3proxy
     chkconfig 3proxy on
     cd $WORKDIR
